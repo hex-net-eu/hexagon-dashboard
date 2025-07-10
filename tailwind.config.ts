@@ -61,7 +61,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				hexagon: {
+					primary: 'hsl(var(--hexagon-primary))',
+					secondary: 'hsl(var(--hexagon-secondary))',
+					accent: 'hsl(var(--hexagon-accent))',
+					warning: 'hsl(var(--hexagon-warning))',
+					success: 'hsl(var(--hexagon-success))',
+					danger: 'hsl(var(--hexagon-danger))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-hexagon': 'var(--gradient-hexagon)'
+			},
+			boxShadow: {
+				'hexagon': 'var(--shadow-hexagon)',
+				'card': 'var(--shadow-card)'
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'lato': ['Lato', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
