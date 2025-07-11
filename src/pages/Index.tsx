@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { HexagonDashboard } from '@/components/HexagonDashboard';
 import { AISettingsPage } from '@/components/AISettingsPage';
 import { SocialMediaPage } from '@/components/SocialMediaPage';
@@ -9,6 +11,12 @@ import { HelpPage } from '@/components/HelpPage';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
+  const [isDark, setIsDark] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle('dark', !isDark);
+  };
 
   const renderPageContent = () => {
     switch (currentPage) {
@@ -30,11 +38,26 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className={`min-h-screen bg-background text-foreground ${isDark ? 'dark' : ''}`}>
       {currentPage === 'dashboard' ? (
         <HexagonDashboard currentPage={currentPage} onPageChange={setCurrentPage} />
       ) : (
-        <div className="flex">
+        <div className="flex flex-col">
+          {/* Top Menu Bar */}
+          <div className="h-16 bg-card border-b border-border flex items-center justify-between px-6">
+            <h1 className="text-xl font-semibold text-foreground">Hexagon Automation</h1>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleTheme}
+              className="flex items-center gap-2"
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {isDark ? 'Light' : 'Dark'}
+            </Button>
+          </div>
+          
+          <div className="flex flex-1">
           <div className="w-64 border-r bg-gradient-card min-h-screen">
             <nav className="p-4 space-y-2">
               {[
@@ -62,6 +85,7 @@ const Index = () => {
             {renderPageContent()}
           </div>
         </div>
+      </div>
       )}
     </div>
   );
