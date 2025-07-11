@@ -21,7 +21,9 @@ import {
   Clock,
   CheckCircle,
   AlertTriangle,
-  Eye
+  Eye,
+  Rss,
+  ExternalLink
 } from 'lucide-react';
 import hexagonLogo from '@/assets/hexagon-logo.png';
 
@@ -52,6 +54,14 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
     { type: 'image', title: 'Generated 3 social media images', time: '1h ago', status: 'success' },
     { type: 'email', title: 'Processed 12 new emails', time: '2h ago', status: 'success' },
     { type: 'error', title: 'LinkedIn posting failed - check credentials', time: '3h ago', status: 'error' },
+  ]);
+
+  const [recentRSSSources] = useState([
+    { title: 'TechCrunch AI News', url: 'techcrunch.com/ai', lastUpdate: '5 min ago', status: 'active', articles: 12 },
+    { title: 'Wired Technology', url: 'wired.com/tech', lastUpdate: '1h ago', status: 'active', articles: 8 },
+    { title: 'MIT Tech Review', url: 'technologyreview.com', lastUpdate: '2h ago', status: 'active', articles: 5 },
+    { title: 'VentureBeat AI', url: 'venturebeat.com/ai', lastUpdate: '4h ago', status: 'inactive', articles: 0 },
+    { title: 'AI News Daily', url: 'ainews.com', lastUpdate: '6h ago', status: 'active', articles: 15 },
   ]);
 
   return (
@@ -236,31 +246,67 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
                 </CardContent>
               </Card>
 
-              {/* Recent Activity */}
-              <Card className="bg-gradient-card border-border/50 shadow-card">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Activity className="mr-2 h-5 w-5 text-hexagon-secondary" />
-                    Recent Activity
-                  </CardTitle>
-                  <CardDescription>Latest automation activities</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {recentActivity.map((activity, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
-                      {activity.status === 'success' ? (
-                        <CheckCircle className="h-4 w-4 text-hexagon-success" />
-                      ) : (
-                        <AlertTriangle className="h-4 w-4 text-hexagon-danger" />
-                      )}
-                      <div className="flex-1">
-                        <p className="text-sm font-medium">{activity.title}</p>
-                        <p className="text-xs text-muted-foreground">{activity.time}</p>
+              {/* Recent Activity and RSS Sources */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Recent Activity */}
+                <Card className="bg-gradient-card border-border/50 shadow-card">
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Activity className="mr-2 h-5 w-5 text-hexagon-secondary" />
+                      Recent Activity
+                    </CardTitle>
+                    <CardDescription>Latest automation activities</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {recentActivity.map((activity, index) => (
+                      <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
+                        {activity.status === 'success' ? (
+                          <CheckCircle className="h-4 w-4 text-hexagon-success" />
+                        ) : (
+                          <AlertTriangle className="h-4 w-4 text-hexagon-danger" />
+                        )}
+                        <div className="flex-1">
+                          <p className="text-sm font-medium">{activity.title}</p>
+                          <p className="text-xs text-muted-foreground">{activity.time}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
+                    ))}
+                  </CardContent>
+                </Card>
+
+                {/* Recent RSS Sources */}
+                <Card className="bg-gradient-card border-border/50 shadow-card">
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Rss className="mr-2 h-5 w-5 text-hexagon-accent" />
+                      Recent RSS Sources
+                    </CardTitle>
+                    <CardDescription>Active content sources monitoring</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {recentRSSSources.map((source, index) => (
+                      <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors">
+                        <div className={`h-3 w-3 rounded-full ${
+                          source.status === 'active' ? 'bg-hexagon-success' : 'bg-hexagon-warning'
+                        }`} />
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between">
+                            <p className="text-sm font-medium">{source.title}</p>
+                            <ExternalLink className="h-3 w-3 text-muted-foreground" />
+                          </div>
+                          <p className="text-xs text-muted-foreground">{source.url}</p>
+                          <div className="flex items-center justify-between mt-1">
+                            <p className="text-xs text-muted-foreground">{source.lastUpdate}</p>
+                            <Badge variant="outline" className="text-xs">
+                              {source.articles} articles
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           )}
         </div>
