@@ -8,59 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 252 252 247; /* Pearl */
-    --foreground: 18 10 143; /* Ultramarine */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 252 252 252; /* Ivory */
-    --card-foreground: 18 10 143; /* Ultramarine */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 252 252 252; /* Ivory */
-    --popover-foreground: 18 10 143; /* Ultramarine */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 0 127 255; /* Azure */
-    --primary-foreground: 252 252 252; /* Ivory */
+    --primary: 200 100% 50%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 244 241 248; /* Lavender */
-    --secondary-foreground: 8 37 103; /* Sapphire */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 244 241 248; /* Lavender */
-    --muted-foreground: 75 156 211; /* Carolina */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 242 248 252; /* Marble */
-    --accent-foreground: 8 37 103; /* Sapphire */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 252 252 252; /* Ivory */
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 248 247 244; /* Cold Steel */
-    --input: 248 247 244; /* Cold Steel */
-    --ring: 0 127 255; /* Azure */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 200 100% 50%;
 
     --radius: 0.5rem;
 
     /* Hexagon Automation Theme Colors */
-    --hexagon-primary: 0 127 255; /* Azure */
-    --hexagon-secondary: 0 191 255; /* Capri */
-    --hexagon-accent: 75 156 211; /* Carolina */
+    --hexagon-primary: 200 100% 50%;
+    --hexagon-secondary: 280 100% 70%;
+    --hexagon-accent: 160 100% 45%;
     --hexagon-warning: 45 93% 58%;
     --hexagon-success: 120 60% 50%;
     --hexagon-danger: 0 84% 60%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, rgb(0 127 255), rgb(0 191 255));
-    --gradient-card: linear-gradient(135deg, rgb(252 252 252), rgb(244 241 248));
-    --gradient-hexagon: linear-gradient(135deg, rgb(0 127 255 / 0.1), rgb(0 191 255 / 0.1));
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 50%), hsl(280 100% 70%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 4.8% 95.9%));
+    --gradient-hexagon: linear-gradient(135deg, hsl(200 100% 50% / 0.1), hsl(280 100% 70% / 0.1));
     
     /* Shadows */
-    --shadow-hexagon: 0 10px 30px -10px rgb(0 127 255 / 0.3);
-    --shadow-card: 0 4px 20px -4px rgb(248 247 244 / 0.5);
+    --shadow-hexagon: 0 10px 30px -10px hsl(200 100% 50% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(240 5.9% 90% / 0.5);
     
     /* WordPress Admin Integration */
-    --wp-admin-bg: 252 252 247; /* Pearl */
-    --wp-admin-sidebar: 244 241 248; /* Lavender */
-    --wp-admin-text: 18 10 143; /* Ultramarine */
+    --wp-admin-bg: 0 0% 98%;
+    --wp-admin-sidebar: 240 4.8% 95.9%;
+    --wp-admin-text: 240 10% 3.9%;
 
-    --sidebar-background: 252 252 252; /* Ivory */
+    --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 

@@ -51,12 +51,12 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
   ]);
 
   const [recentActivity] = useState([
-    { type: 'post', title: 'AI-Generated Article Published', summary: 'Technology article about AI trends', category: 'Tech News', tags: ['AI', 'Technology'], time: '2 min ago', status: 'success' },
-    { type: 'social', title: 'Posted to Facebook & Instagram', summary: 'Shared latest product update across social platforms', category: 'Social Media', tags: ['Marketing', 'Engagement'], time: '15 min ago', status: 'success' },
-    { type: 'image', title: 'Generated 3 social media images', summary: 'AI-created visuals for upcoming campaign', category: 'Visual Content', tags: ['Design', 'AI Art'], time: '1h ago', status: 'success' },
-    { type: 'email', title: 'Processed 12 new emails', summary: 'Extracted leads and content from inbox', category: 'Email Processing', tags: ['Lead Gen', 'Automation'], time: '2h ago', status: 'success' },
-    { type: 'error', title: 'LinkedIn posting failed - check credentials', summary: 'Authentication error on LinkedIn API', category: 'Error Handling', tags: ['LinkedIn', 'API Error'], time: '3h ago', status: 'error' },
-    { type: 'rss', title: 'Updated RSS feeds from 8 sources', summary: 'Fresh content imported from news sources', category: 'Content Curation', tags: ['RSS', 'News'], time: '4h ago', status: 'success' },
+    { type: 'post', title: 'AI-Generated Article Published', time: '2 min ago', status: 'success' },
+    { type: 'social', title: 'Posted to Facebook & Instagram', time: '15 min ago', status: 'success' },
+    { type: 'image', title: 'Generated 3 social media images', time: '1h ago', status: 'success' },
+    { type: 'email', title: 'Processed 12 new emails', time: '2h ago', status: 'success' },
+    { type: 'error', title: 'LinkedIn posting failed - check credentials', time: '3h ago', status: 'error' },
+    { type: 'rss', title: 'Updated RSS feeds from 8 sources', time: '4h ago', status: 'success' },
   ]);
 
   const [recentRSSSources] = useState([
@@ -262,29 +262,20 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {recentActivity.map((activity, index) => (
-                      <div key={index} className="flex items-start space-x-3 p-3 rounded-lg bg-muted/50">
+                      <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
                         {activity.status === 'success' ? (
-                          <CheckCircle className="h-4 w-4 text-hexagon-success mt-1" />
+                          <CheckCircle className="h-4 w-4 text-hexagon-success" />
                         ) : (
-                          <AlertTriangle className="h-4 w-4 text-hexagon-danger mt-1" />
+                          <AlertTriangle className="h-4 w-4 text-hexagon-danger" />
                         )}
                         <div className="flex-1">
                           <p className="text-sm font-medium">{activity.title}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{activity.summary}</p>
-                          <div className="flex items-center justify-between mt-2">
-                            <div className="flex items-center space-x-2">
-                              <Badge variant="outline" className="text-xs">{activity.category}</Badge>
-                              {activity.tags.map((tag, tagIndex) => (
-                                <span key={tagIndex} className="text-xs text-muted-foreground">#{tag}</span>
-                              ))}
-                            </div>
-                            <p className="text-xs text-muted-foreground">{activity.time}</p>
-                          </div>
+                          <p className="text-xs text-muted-foreground">{activity.time}</p>
                         </div>
                       </div>
                     ))}
                     <div className="pt-2 border-t border-border/50">
-                      <Button variant="default" size="sm" className="w-full justify-between bg-slate-800 text-white hover:bg-slate-700">
+                      <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
                         View All Activity
                         <ArrowRight className="h-4 w-4" />
                       </Button>
@@ -323,11 +314,11 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
                       </div>
                     ))}
                     <div className="pt-2 border-t border-border/50 space-y-2">
-                      <Button variant="ghost" size="sm" className="w-full justify-between bg-slate-800 text-white hover:bg-slate-700">
+                      <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
                         View All Sources
                         <ArrowRight className="h-4 w-4" />
                       </Button>
-                      <Button variant="outline" size="sm" className="w-full justify-center bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700">
+                      <Button variant="outline" size="sm" className="w-full justify-center border-hexagon-accent/20 text-hexagon-accent hover:bg-hexagon-accent/10">
                         <Plus className="h-4 w-4 mr-2" />
                         Add New Source
                       </Button>
