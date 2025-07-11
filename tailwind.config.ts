@@ -63,9 +63,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hexagon: {
-					primary: 'hsl(var(--hexagon-primary))',
-					secondary: 'hsl(var(--hexagon-secondary))',
-					accent: 'hsl(var(--hexagon-accent))',
+					primary: 'rgb(0 127 255)', /* Azure */
+					secondary: 'rgb(0 191 255)', /* Capri */
+					accent: 'rgb(75 156 211)', /* Carolina */
 					warning: 'hsl(var(--hexagon-warning))',
 					success: 'hsl(var(--hexagon-success))',
 					danger: 'hsl(var(--hexagon-danger))'
