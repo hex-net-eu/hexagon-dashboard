@@ -44,6 +44,7 @@ const Index = () => {
                 { id: 'image-generator', label: 'Image Generator' },
                 { id: 'debug-logger', label: 'Debug Logger' },
                 { id: 'settings', label: 'Settings' },
+                { id: 'help', label: 'Help / FAQ' },
               ].map((item) => (
                 <button
                   key={item.id}
