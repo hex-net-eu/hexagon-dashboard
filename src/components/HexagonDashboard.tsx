@@ -23,7 +23,9 @@ import {
   AlertTriangle,
   Eye,
   Rss,
-  ExternalLink
+  ExternalLink,
+  ArrowRight,
+  Plus
 } from 'lucide-react';
 import hexagonLogo from '@/assets/hexagon-logo.png';
 
@@ -54,6 +56,7 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
     { type: 'image', title: 'Generated 3 social media images', time: '1h ago', status: 'success' },
     { type: 'email', title: 'Processed 12 new emails', time: '2h ago', status: 'success' },
     { type: 'error', title: 'LinkedIn posting failed - check credentials', time: '3h ago', status: 'error' },
+    { type: 'rss', title: 'Updated RSS feeds from 8 sources', time: '4h ago', status: 'success' },
   ]);
 
   const [recentRSSSources] = useState([
@@ -271,6 +274,12 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
                         </div>
                       </div>
                     ))}
+                    <div className="pt-2 border-t border-border/50">
+                      <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
+                        View All Activity
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -304,6 +313,16 @@ export function HexagonDashboard({ currentPage, onPageChange }: DashboardProps) 
                         </div>
                       </div>
                     ))}
+                    <div className="pt-2 border-t border-border/50 space-y-2">
+                      <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
+                        View All Sources
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                      <Button variant="outline" size="sm" className="w-full justify-center border-hexagon-accent/20 text-hexagon-accent hover:bg-hexagon-accent/10">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add New Source
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
